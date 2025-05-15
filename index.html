@@ -1,119 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title> SlotsRi</title>
-	<style>
-		h1,h2 {
-		color:purple;
-		text-align:center;
-		}
-		table {
-		width:100%;
-		text-align:left;
-		}
-		table,th,td{
-		border:2px solid blue;
-		border-radius:5px;
-		}
-		.second-table th, .second-table td {
-            		border: 2px solid green;
-		}	
-	</style>
-	<script>
-	function calculateTotal() {
-    	let rows = document.querySelectorAll(".second-table tbody tr"); 
-   	rows.forEach(row => {
-        	let deposit = parseInt(row.children[3].textContent); 
-        	let withdrawal = parseInt(row.children[4].textContent);
-        
-        	if (!isNaN(deposit) && !isNaN(withdrawal)) {
-            	row.children[5].textContent = deposit - withdrawal; 
-        	}
-   	});
-}
-
-window.onload = calculateTotal; // Runs the function when the page loads
-	</script>
+  <meta charset="UTF-8" />
+  <title>SlotsRi</title>
+  <style>
+    h1, h2 {
+      color: purple;
+      text-align: center;
+    }
+    table {
+      width: 100%;
+      text-align: left;
+    }
+    table, th, td {
+      border: 2px solid blue;
+      border-radius: 5px;
+    }
+    .second-table th, .second-table td {
+      border: 2px solid green;
+    }
+    canvas {
+      display: block;
+      margin: 30px auto;
+      max-width: 90%;
+    }
+  </style>
+  <script>
+    function calculateTotal() {
+      let rows = document.querySelectorAll(".second-table tbody tr"); 
+      rows.forEach(row => {
+        let deposit = parseInt(row.children[3].textContent); 
+        let withdrawal = parseInt(row.children[4].textContent);
+        if (!isNaN(deposit) && !isNaN(withdrawal)) {
+          row.children[5].textContent = deposit - withdrawal; 
+        }
+      });
+    }
+    window.onload = calculateTotal;
+  </script>
 </head>
 
 <body style="color:red;">
-	<h1><b>"   印尼盘口每日工作时间   "</h1>
-	<table style="width=100%">
-		<tr>
-			<th><b> No</th>
-			<th><b> Date</th>
-			<th><b> Name</th>
-			<th><b> 工作时间</th>
+  <h1><b>印尼盘口每日工作时间</b></h1>
+  <table>
+    <tr>
+      <th>No</th><th>Date</th><th>Name</th><th>工作时间</th>
+    </tr>
+    <tr><td>1.</td><td>2025-05-10</td><td>小吕</td><td>中班 【12点到24点 北京时间】</td></tr>
+    <tr><td>2.</td><td>2025-05-10</td><td>阿虎</td><td>白班 【10点到22点 北京时间】</td></tr>
+    <tr><td>3.</td><td>2025-05-10</td><td>阿豪</td><td>夜班 【22点到10点 北京时间】</td></tr>
+  </table>
 
-		</tr>
-		<tr>
-			<td><b>1.</td>
-			<td><b>2025-05-10</td>
-			<td><b>小吕</td>
-			<td><b>中班 【12点到24点 北京时间】</td>
-		</tr>
-		<tr>
-			<td><b>2.</td>
-			<td><b>2025-05-10</td>
-			<td><b>阿虎</td>
-			<td><b>白班 【10点到22点 北京时间】</td>
-		</tr>
-		<tr>
-			<td><b>3.</td>
-			<td><b>2025-05-10</td>
-			<td><b>阿豪</td>
-			<td><b>夜班 【22点到10点 北京时间】</td>
-		</tr>
-	</table>
+  <h2>印尼盘口每日充值人数</h2>
+  <table class="second-table">
+    <thead>
+      <tr>
+        <th>No</th><th>Date</th><th>充值人数</th><th>充值金额</th><th>提现金额</th><th>合计</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1.</td><td>2025-05-10</td><td>4709</td><td>198576914</td><td>162423803</td><td></td></tr>
+      <tr><td>2.</td><td>2025-05-11</td><td>5005</td><td>202688441</td><td>181897079</td><td></td></tr>
+      <tr><td>3.</td><td>2025-05-12</td><td>4512</td><td>187785115</td><td>177421815</td><td></td></tr>
+      <tr><td>4.</td><td>2025-05-13</td><td>4654</td><td>195511558</td><td>174506183</td><td></td></tr>
+      <tr><td>5.</td><td>2025-05-14</td><td>4428</td><td>196586408</td><td>160205339</td><td></td></tr>
+      <tr><td>6.</td><td>2025-05-15</td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+  </table>
 
-	<h2 style="color:purple; text-align:center; "> "  印尼盘口每日充值人数   "</h2>
-		<table class="second-table" style="color:blue; ">
-			<tr>
-				<th><b>No</th>
-				<th><b>Date</th>
-				<th><b>充值人数</th>
-				<th><b>充值金额</th>
-				<th><b>提现金额</th>
-				<th><b>合计</th>
-			</tr>
-			<tr>
-				<td> 1.</td>
-				<td> 2025-05-10</td>
-				<td> 4709</td>
-				<td> 198576914</td>
-				<td> 162423803</td>
-				<td></td>				
-			</tr>
-			<tr>
-				<td> 2.</td>
-				<td> 2025-05-11</td>
-				<td> 5005</td>
-				<td> 202688441</td>
-				<td> 181897079</td>
-				<td></td>				
-			</tr>
-			<tr>
-				<td> 3.</td>
-				<td> 2025-05-12</td>
-				<td> 4512</td>
-				<td> 187785115</td>
-				<td> 177421815</td>
-				<td></td>				
-			</tr>
-			<tr>
-				<td>4.</td>
-				<td>2025-05-13</td>
-				<td>4654</td>
-				<td>195511558</td>
-				<td>174506183</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>5.</td>
-				<td>2025-05-14</td>
-				<td>4428</td>
-				<td>196586408</td>
-				<td>160205339</td>
-				<td></td>
-			</tr>
-		</table>
+  <!-- Charts -->
+  <canvas id="peopleChart" width="400" height="200"></canvas>
+  <canvas id="amountChart" width="400" height="200"></canvas>
 
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Chart Script -->
+  <script>
+    // Prepare data for the charts
+    const tableRows = document.querySelectorAll(".second-table tbody tr");
+    const labels = [];
+    const peopleData = [];
+    const amountData = [];
+
+    tableRows.forEach(row => {
+      const cells = row.querySelectorAll("td");
+      labels.push(cells[1].textContent.trim());
+      peopleData.push(parseInt(cells[2].textContent.trim()));
+      amountData.push(parseInt(cells[3].textContent.trim()));
+    });
+
+    // 充值人数 chart
+    new Chart(document.getElementById("peopleChart"), {
+      type: "line",  // line chart
+      data: {
+        labels: labels,  // x-axis: dates
+        datasets: [{
+          label: "充值人数",
+          data: peopleData,  // y-axis: number of people
+          borderColor: "red",  // Line color
+          backgroundColor: "rgba(255,0,0,0.2)",  // Fill color under line
+          tension: 0.3,  // Line smoothness
+          pointRadius: 4,  // Default round dot for points
+          pointBackgroundColor: "red",  // Point color
+          fill: false  // No fill below the line
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          title: {
+            display: true,
+            text: "充值人数"  // Chart title
+          },
+          tooltip: {
+            callbacks: {
+              label: function(tooltipItem) {
+                return "人数: " + tooltipItem.raw;  // Show the number at each point
+              }
+            }
+          }
+        }
+      }
+    });
+
+    // 充值金额 chart
+    new Chart(document.getElementById("amountChart"), {
+      type: "line",  // line chart
+      data: {
+        labels: labels,  // x-axis: dates
+        datasets: [{
+          label: "充值金额",
+          data: amountData,  // y-axis: recharge amounts
+          borderColor: "red",  // Line color
+          backgroundColor: "rgba(255,0,0,0.2)",  // Fill color under line
+          tension: 0.3,  // Line smoothness
+          pointRadius: 4,  // Default round dot for points
+          pointBackgroundColor: "red",  // Point color
+          fill: false  // No fill below the line
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          title: {
+            display: true,
+            text: "充值金额"  // Chart title
+          },
+          tooltip: {
+            callbacks: {
+              label: function(tooltipItem) {
+                return "金额: ¥" + tooltipItem.raw.toLocaleString();  // Show the amount with currency
+              }
+            }
+          }
+        }
+      }
+    });
+  </script>
 </body>
+</html>
