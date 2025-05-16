@@ -29,10 +29,25 @@
     function calculateTotal() {
       let rows = document.querySelectorAll(".second-table tbody tr"); 
       rows.forEach(row => {
-        let deposit = parseInt(row.children[3].textContent); 
-        let withdrawal = parseInt(row.children[4].textContent);
+        let deposit = parseInt(row.children[3].textContent.replace(/,/g, '')); 
+        let withdrawal = parseInt(row.children[4].textContent.replace(/,/g, ''));
+        let people = parseInt(row.children[2].textContent.replace(/,/g, ''));
+
+        if (!isNaN(people)) {
+          row.children[2].textContent = people.toLocaleString();
+        }
+
+        if (!isNaN(deposit)) {
+          row.children[3].textContent = deposit.toLocaleString();
+        }
+
+        if (!isNaN(withdrawal)) {
+          row.children[4].textContent = withdrawal.toLocaleString();
+        }
+
         if (!isNaN(deposit) && !isNaN(withdrawal)) {
-          row.children[5].textContent = deposit - withdrawal; 
+          let total = deposit - withdrawal;
+          row.children[5].textContent = total.toLocaleString(); 
         }
       });
     }
@@ -127,7 +142,7 @@
           tooltip: {
             callbacks: {
               label: function(tooltipItem) {
-                return "人数: " + tooltipItem.raw;  // Show the number at each point
+                return "人数: " + tooltipItem.raw.toLocaleString();  // Show the number at each point
               }
             }
           }
